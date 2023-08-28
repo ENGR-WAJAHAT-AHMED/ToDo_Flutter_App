@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/colors.dart';
+import 'package:to_do_app/todo_item.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class Home extends StatelessWidget {
       backgroundColor: tdBGColor,
       appBar: buildHomeAppBar(),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         child: Column(
           children: [
             searchBox(),
@@ -18,9 +19,14 @@ class Home extends StatelessWidget {
               child: ListView(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 30,bottom: 20),
-                    child: Text("All ToDos",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w500),),
-                  )
+                    margin: EdgeInsets.only(top: 30, bottom: 20),
+                    child: Text(
+                      "All ToDos",
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                  ToDoItem(),
                 ],
               ),
             )
@@ -29,7 +35,8 @@ class Home extends StatelessWidget {
       ),
     );
   }
-  Widget searchBox(){
+
+  Widget searchBox() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
@@ -49,13 +56,12 @@ class Home extends StatelessWidget {
               minWidth: 25,
             ),
             border: InputBorder.none,
-            hintText: "search" ,
-            hintStyle: TextStyle(color: tdGrey)
-        ),
+            hintText: "search",
+            hintStyle: TextStyle(color: tdGrey)),
       ),
     );
-
   }
+
   AppBar buildHomeAppBar() {
     return AppBar(
         backgroundColor: tdBGColor,
