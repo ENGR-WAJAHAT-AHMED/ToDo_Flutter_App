@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:to_do_app/colors.dart';
 
 class ToDoItem extends StatelessWidget {
-  const ToDoItem({Key? key}) : super(key: key);
+  final String Textt;
+  const ToDoItem({Key? key, required this.Textt}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +19,11 @@ class ToDoItem extends StatelessWidget {
           color: tdBlue,
         ),
         title: Text(
-          "Check Mail",
+          Textt,
           style: TextStyle(
             fontSize: 16,
             color: tdBlack,
-            decoration: TextDecoration.lineThrough,
+            decoration: TextDecoration.underline,
           ),
         ),
         trailing: Container(
