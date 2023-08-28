@@ -10,31 +10,18 @@ class Home extends StatelessWidget {
       backgroundColor: tdBGColor,
       appBar: buildHomeAppBar(),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: EdgeInsets.symmetric(horizontal: 20,vertical: 15),
         child: Column(
           children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 15),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(0),
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: tdBlack,
-                      size: 20,
-                    ),
-                  prefixIconConstraints: BoxConstraints(
-                    maxHeight: 20,
-                    minWidth: 25,
-                  ),
-                  border: InputBorder.none,
-                  hintText: "search",
-                  hintStyle: TextStyle(color: tdGrey)
-                ),
+            searchBox(),
+            Expanded(
+              child: ListView(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 30,bottom: 20),
+                    child: Text("All ToDos",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w500),),
+                  )
+                ],
               ),
             )
           ],
@@ -42,7 +29,33 @@ class Home extends StatelessWidget {
       ),
     );
   }
+  Widget searchBox(){
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: TextField(
+        decoration: InputDecoration(
+            contentPadding: EdgeInsets.all(7),
+            prefixIcon: Icon(
+              Icons.search,
+              color: tdBlack,
+              size: 20,
+            ),
+            prefixIconConstraints: BoxConstraints(
+              maxHeight: 20,
+              minWidth: 25,
+            ),
+            border: InputBorder.none,
+            hintText: "search" ,
+            hintStyle: TextStyle(color: tdGrey)
+        ),
+      ),
+    );
 
+  }
   AppBar buildHomeAppBar() {
     return AppBar(
         backgroundColor: tdBGColor,
